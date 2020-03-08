@@ -36,18 +36,16 @@ def get_coin():
 
         coin = input(f'\nEnter the cryptocurrency you would like to see data on (symbol or name): ')
         for key, value in res.items():
-            for index in value.items():
-                for item in index:
-                    if type(item) == dict:
-                        for i in item.items():
-                            for j in i:
-                                if j == coin.upper() or j == coin.title():
-                                    coin_found = True
-                                    # Run next function
-                                    show_coin_data(item, coin)
-                                else:
-                                    coin_found = False
+            x = [v + z for v in value for z in v]
+            print(x)
+            '''for index, v in value.items():
+                for y, z in v.items():
+                    if z == coin.upper() or z == coin.title():
+                        coin_found = True
+                        show_coin_data(v, coin)'''
 
+        x = [value + v for value in res for v in value]
+        print(x)
 
 def show_coin_data(item, coin):
     for k, v in item.items():
